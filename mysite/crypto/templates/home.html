@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1 class="text-4xl font-semibold py-8 text-red-800 leading-loose text-center mx-auto container">News</h1>
+
+<div class="flex flex-wrap justify-around items-top ">
+{% for x in api.Data %}
+        <div class="max-w-sm mt-6">
+            <div class="mx-2 rounded shadow-lg border overflow-hidden">
+              <img src="{{ x.imageurl }}" alt=" {{ x.source  }}" class="w-full object-cover object-center" />
+              <div class="p-4 bg-white">
+                <p class="mb-1 text-gray-900 font-semibold">{{ x.title }}</p>
+                <span class="text-gray-700">{{ x.body }}</span>
+                <div class="mt-8 mb-3">
+                  <a href="{{ x.url }}"
+                    class="px-4 py-2 bg-red-600 shadow-lg border rounded-lg text-white uppercase font-semibold tracking-wider focus:outline-none focus:shadow-outline hover:bg-red-500 active:bg-teal-400">Card
+                    Read more</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    {% endfor%}
+
+</div>
+
+
+
+<!-- {{ api.Data }} -->
+
+{% endblock  %}
