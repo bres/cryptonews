@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if crypto.Response %}
+
+<div class="bg-gray-100 border border-black text-purple-700 px-4 py-3 rounded relative mt-32 font-mono" role="alert">
+     <span class="block sm:inline text-2xl">Sorry , {{ quote }} symbol does not exist. Please Try Again...</span>
+  <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+    <svg class="fill-current h-6 w-6 text-purple-700" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+  </span>
+</div>
+ {% endif %}
+{% for key,value in crypto.DISPLAY.items %}
+
+<div class="flex items-baseline bg-black mt-32 text-white font-mono ">
+     <p class="text-2xl font-bold bg-red-600 px-6 py-2">{{key}}</p> <p class="font-bold text-sm mx-2">UPDATED:</p> {{ value.EUR.LASTUPDATE }}
+</div>
+<div class="bg-white">
+  <ul class="flex flex-wrap py-6 leading-loose">
+       <li class="hover:bg-black  hover:text-white"> <span class="font-bold text-lg  mx-4 ">MARKET:</span>     {{ value.EUR.MARKET}}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">FROMSYMBOL:</span>     {{ value.EUR.FROMSYMBOL}}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">TOSYMBOL:</span>     {{ value.EUR.TOSYMBOL }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">PRICE:</span>     {{ value.EUR.PRICE }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">MEDIAN:</span>     {{ value.EUR.MEDIAN }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">OPENDAY:</span>     {{ value.EUR.OPENDAY }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">HIGHDAY:</span>     {{ value.EUR.HIGHDAY }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">LOWDAY:</span>     {{ value.EUR.LOWDAY }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">OPEN24HOUR:</span>     {{ value.EUR.OPEN24HOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">HIGH24HOUR:</span>     {{ value.EUR.HIGH24HOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">LOW24HOUR:</span>     {{ value.EUR.LOW24HOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">LASTMARKET:</span>     {{ value.EUR.LASTMARKET }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">OPENHOUR:</span>     {{ value.EUR.OPENHOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">HIGHHOUR:</span>     {{ value.EUR.HIGHHOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">LOWHOUR:</span>     {{ value.EUR.LOWHOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">CHANGE24HOUR:</span>     {{ value.EUR.CHANGE24HOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">CHANGEDAY:</span>     {{ value.EUR.CHANGEDAY }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">CHANGEHOUR:</span>     {{ value.EUR.CHANGEHOUR }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">SUPPLY:</span>     {{ value.EUR.SUPPLY }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">MKTCAP:</span>     {{ value.EUR.MKTCAP }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">TOTALVOLUME24H:</span>     {{ value.EUR.TOTALVOLUME24H }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">TOTALVOLUME24HTO:</span>     {{ value.EUR.TOTALVOLUME24HTO }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">TOTALTOPTIERVOLUME24H:</span>     {{ value.EUR.TOTALTOPTIERVOLUME24H }}</li>
+       <li class="hover:bg-black hover:text-white"> <span class="font-bold text-lg  mx-4">TOTALTOPTIERVOLUME24HTO:</span>     {{ value.EUR.TOTALTOPTIERVOLUME24HTO}}</li>
+
+  </ul>
+</div>
+{% endfor %}
+
+
+
+
+
+<p class="h-screen"></p>
+
+
+
+ {% endblock %}
